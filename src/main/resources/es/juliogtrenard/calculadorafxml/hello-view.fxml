@@ -1,16 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="es.juliogtrenard.calculadorafxml.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="97.0" layoutY="29.0" text="CALCULADORA">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNum1" layoutX="86.0" layoutY="82.0" prefHeight="24.0" prefWidth="128.0" />
+      <TextField fx:id="txtNum2" layoutX="86.0" layoutY="204.0" prefHeight="24.0" prefWidth="128.0" />
+      <TextField fx:id="txtResultado" editable="false" layoutX="86.0" layoutY="284.0" prefHeight="24.0" prefWidth="128.0" />
+      <Label layoutX="135.0" layoutY="228.0" text="=">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="rbSumar" layoutX="124.0" layoutY="115.0" mnemonicParsing="false" text="Sumar">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="tgOperacion" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="rbRestar" layoutX="124.0" layoutY="138.0" mnemonicParsing="false" text="Restar" toggleGroup="$tgOperacion">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbMultiplicar" layoutX="114.0" layoutY="159.0" mnemonicParsing="false" text="Multiplicar" toggleGroup="$tgOperacion">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rdDividir" layoutX="124.0" layoutY="180.0" mnemonicParsing="false" text="Dividir" toggleGroup="$tgOperacion">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="21.0" layoutY="86.0" text="Número 1" />
+      <Label layoutX="21.0" layoutY="208.0" text="Número 2" />
+      <Label layoutX="21.0" layoutY="288.0" text="Resultado" />
+      <Button fx:id="btnCalcular" layoutX="115.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Calcular" />
+   </children>
+</Pane>
