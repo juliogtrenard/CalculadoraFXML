@@ -14,9 +14,6 @@ public class HelloController {
     private TextField txtResultado;
 
     @FXML
-    private Button btnCalcular;
-
-    @FXML
     private RadioButton rbSumar;
 
     @FXML
@@ -38,26 +35,31 @@ public class HelloController {
 
             float num2 = Float.parseFloat(txtNum2.getText());
 
+            float resultado = 0;
+
             if(rbSumar.isSelected()) {
-                float resultado = num1 + num2;
+                resultado = num1 + num2;
 
                 txtResultado.setText(String.valueOf(resultado));
             }
 
             if(rbRestar.isSelected()) {
-                float resultado = num1 - num2;
-
-                txtResultado.setText(String.valueOf(resultado));
-            }
-
-            if(rbDividir.isSelected()) {
-                float resultado = num1 / num2;
+                resultado = num1 - num2;
 
                 txtResultado.setText(String.valueOf(resultado));
             }
 
             if(rbMultiplicar.isSelected()) {
-                float resultado = num1 * num2;
+                resultado = num1 * num2;
+
+                txtResultado.setText(String.valueOf(resultado));
+            }
+
+            if(rbDividir.isSelected()) {
+                if (Math.abs(num1 / num2) == Double.POSITIVE_INFINITY)
+                    throw new ArithmeticException();
+
+                resultado = (float)num1 / num2;
 
                 txtResultado.setText(String.valueOf(resultado));
             }
